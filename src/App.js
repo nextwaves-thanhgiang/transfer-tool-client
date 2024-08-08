@@ -9,6 +9,9 @@ import "./assets/styles/responsive.css";
 import "antd/dist/antd.css";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
+import Profile from "./pages/Profile";
+import CreateTransfer from "./pages/CreateTransfer";
+import TransferSlipDetail from "./pages/TransferSlipDetail";
 
 function App() {
   const navigate = useNavigate();
@@ -25,19 +28,22 @@ function App() {
       })
       .then((response) => {
         setIsAuthenicated(true);
-        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);
         navigate("/login");
       });
-    navigate("/login");
   }, []);
 
   return (
     <>
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Main />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="profiles" element={<Profile />} />
+          <Route path="create-transfer" element={<CreateTransfer />}></Route>
+          <Route path="transfer-slip-detail" element={<TransferSlipDetail />} />
+        </Route>
         <Route path="/login" element={<SignIn />} />
       </Routes>
       <Toaster />

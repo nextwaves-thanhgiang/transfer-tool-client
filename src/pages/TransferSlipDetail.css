@@ -1,0 +1,78 @@
+.transfer-slip {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 600px;
+  margin: auto;
+  background-color: #f9f9f9;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+}
+
+.bold-center {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.transfer-slip h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 0;
+}
+
+.transfer-slip-info p,
+.transfer-slip-signature p {
+  margin: 10px 0;
+}
+
+.transfer-slip h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.transfer-slip-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transfer-slip-table th,
+.transfer-slip-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.transfer-slip-table th {
+  background-color: #f2f2f2;
+}
+
+.transfer-slip-signature {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-bottom: 100px;
+}
+
+.transfer-slip-signature p {
+  margin: 0 20px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
