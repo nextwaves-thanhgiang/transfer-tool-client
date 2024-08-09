@@ -67,12 +67,12 @@ export default class SignIn extends Component {
                 <Form onFinish={onFinish} layout="vertical" className="row-col">
                   <Form.Item
                     className="username"
-                    label="Địa chỉ Email"
+                    label="Địa chỉ Email hoặc Username"
                     name="email"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your email!",
+                        message: "Xin vui lòng nhập email hoặc tên người dùng",
                       },
                     ]}
                   >
@@ -86,11 +86,11 @@ export default class SignIn extends Component {
                     rules={[
                       {
                         required: true,
-                        message: "Please input your password!",
+                        message: "Xin vui lòng nhập mật khẩu của bạn",
                       },
                     ]}
                   >
-                    <Input placeholder="Mật khẩu" />
+                    <Input type="password" placeholder="Mật khẩu" />
                   </Form.Item>
 
                   <Form.Item>

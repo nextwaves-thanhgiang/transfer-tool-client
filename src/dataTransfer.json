@@ -1,0 +1,182 @@
+[
+  {
+    "key": "1",
+    "image": "https://via.placeholder.com/50",
+    "code": "78239456",
+    "name": "Bột gạo",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 100
+  },
+  {
+    "key": "2",
+    "image": "https://via.placeholder.com/50",
+    "code": "82457392",
+    "name": "Bột mì",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 200
+  },
+  {
+    "key": "3",
+    "image": "https://via.placeholder.com/50",
+    "code": "93728461",
+    "name": "Tinh bột khoai mì",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 150
+  },
+  {
+    "key": "4",
+    "image": "https://via.placeholder.com/50",
+    "code": "48291034",
+    "name": "Muối",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 50
+  },
+  {
+    "key": "5",
+    "image": "https://via.placeholder.com/50",
+    "code": "51829304",
+    "name": "Đường",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 30
+  },
+  {
+    "key": "6",
+    "image": "https://via.placeholder.com/50",
+    "code": "61928437",
+    "name": "Hành lá",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 20
+  },
+  {
+    "key": "7",
+    "image": "https://via.placeholder.com/50",
+    "code": "72038492",
+    "name": "Hành tím",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 15
+  },
+  {
+    "key": "8",
+    "image": "https://via.placeholder.com/50",
+    "code": "82394752",
+    "name": "Tiêu",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 10
+  },
+  {
+    "key": "9",
+    "image": "https://via.placeholder.com/50",
+    "code": "93485721",
+    "name": "Ớt bột",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 25
+  },
+  {
+    "key": "10",
+    "image": "https://via.placeholder.com/50",
+    "code": "10394857",
+    "name": "Tỏi",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 40
+  },
+  {
+    "key": "11",
+    "image": "https://via.placeholder.com/50",
+    "code": "11483920",
+    "name": "Nước mắm",
+    "category": "Gia vị",
+    "unit": "Lít",
+    "quantity": 60
+  },
+  {
+    "key": "12",
+    "image": "https://via.placeholder.com/50",
+    "code": "12483957",
+    "name": "Dầu ăn",
+    "category": "Nguyên vật liệu",
+    "unit": "Lít",
+    "quantity": 70
+  },
+  {
+    "key": "13",
+    "image": "https://via.placeholder.com/50",
+    "code": "13472845",
+    "name": "Bột ngọt",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 55
+  },
+  {
+    "key": "14",
+    "image": "https://via.placeholder.com/50",
+    "code": "14820394",
+    "name": "Nấm hương",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 12
+  },
+  {
+    "key": "15",
+    "image": "https://via.placeholder.com/50",
+    "code": "15273849",
+    "name": "Hành phi",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 18
+  },
+  {
+    "key": "16",
+    "image": "https://via.placeholder.com/50",
+    "code": "16283457",
+    "name": "Lá chanh",
+    "category": "Gia vị",
+    "unit": "Kg",
+    "quantity": 9
+  },
+  {
+    "key": "17",
+    "image": "https://via.placeholder.com/50",
+    "code": "17829483",
+    "name": "Rau răm",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 16
+  },
+  {
+    "key": "18",
+    "image": "https://via.placeholder.com/50",
+    "code": "18273948",
+    "name": "Nước dừa",
+    "category": "Nguyên vật liệu",
+    "unit": "Lít",
+    "quantity": 50
+  },
+  {
+    "key": "19",
+    "image": "https://via.placeholder.com/50",
+    "code": "19284756",
+    "name": "Bột nghệ",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 22
+  },
+  {
+    "key": "20",
+    "image": "https://via.placeholder.com/50",
+    "code": "20394875",
+    "name": "Gừng",
+    "category": "Nguyên vật liệu",
+    "unit": "Kg",
+    "quantity": 28
+  }
+]

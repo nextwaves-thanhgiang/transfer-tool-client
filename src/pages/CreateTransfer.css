@@ -1,0 +1,26 @@
+.tables-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px; /* Giới hạn chiều cao bảng */
+}
+
+/* Bố cục cho màn hình lớn hơn 768px */
+@media (min-width: 768px) {
+  .tables-container {
+    flex-direction: row;
+  }
+}
+
+/* Ẩn cột "Hành động" khi màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .table-wrapper th:nth-child(3),
+  .table-wrapper td:nth-child(3) {
+    display: none;
+  }
+}

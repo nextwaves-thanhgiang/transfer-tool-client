@@ -12,35 +12,8 @@ const initState = {
   transport_type: "",
   receiver_name: "",
   notes: "",
+  createdByFullName: "",
   selectedProducts: [],
-};
-
-const data = {
-  time: "02:51:01",
-  date: "2024-08-09",
-  transport_type: "Lãnh vật tư sản xuất",
-  receiver_name: "Nguyễn Thanh Giang",
-  notes: "Hàng chuyển gấp",
-  selectedProducts: [
-    {
-      code: "78239456",
-      name: "Bột gạo",
-      unit: "kg",
-      quantity: 1,
-    },
-    {
-      code: "82457392",
-      name: "Bột mì",
-      unit: "kg",
-      quantity: 2,
-    },
-    {
-      code: "93728461",
-      name: "Tinh bột khoai mì",
-      unit: "kg",
-      quantity: 3,
-    },
-  ],
 };
 
 const TransferSlipDetail = () => {
@@ -53,8 +26,6 @@ const TransferSlipDetail = () => {
   const trcode = searchParams.get("trcode");
   const barcodeRef = useRef(null);
 
-  console.log(123);
-
   const formatData = (data) => {
     return {
       time: data.time,
@@ -64,7 +35,8 @@ const TransferSlipDetail = () => {
           ? "Lãnh vật tư sản xuất"
           : "Trả vật tư dang dở",
       receiver_name: data.responsiblePerson, // Cần đổi tên trường này nếu khác
-      notes: "Hàng chuyển gấp", // Nếu cần lấy từ server data, hãy thêm vào
+      createdByFullName: data.createdByFullName,
+      notes: data.notes, // Nếu cần lấy từ server data, hãy thêm vào
       selectedProducts: data.products.map((product) => ({
         code: product.code,
         name: product.name,
@@ -74,33 +46,40 @@ const TransferSlipDetail = () => {
     };
   };
   useEffect(() => {
-    // Fetch transfer details from the API
     const fetchTransferDetails = async () => {
       try {
         const response = await axios.get(
           `http://localhost:3003/api/transfer/transfer-details/${trcode}`
         );
+
+        // Cập nhật dữ liệu trước
         setDataTransfer(response.data);
-        JsBarcode(barcodeRef.current, dataTransfer.transferId, {
-          format: "CODE128",
-          displayValue: true,
-          fontSize: 18,
-          height: 50,
-        });
+
+        // Định dạng dữ liệu
         const formattedData = formatData(response.data);
         setTransferDetails(formattedData);
 
-        console.log(formattedData);
-        console.log(data);
+        setLoading(false);
       } catch (error) {
         setError("Error fetching transfer details");
-      } finally {
         setLoading(false);
       }
     };
 
     fetchTransferDetails();
-  }, []);
+  }, [trcode]);
+
+  useEffect(() => {
+    // Chỉ tạo barcode sau khi dataTransfer.transferId đã được cập nhật
+    if (dataTransfer.transferId) {
+      JsBarcode(barcodeRef.current, dataTransfer.transferId, {
+        format: "CODE128",
+        displayValue: true,
+        fontSize: 18,
+        height: 50,
+      });
+    }
+  }, [dataTransfer.transferId]);
 
   const exportPDF = () => {
     const input = document.getElementById("transfer-slip");
@@ -152,15 +131,16 @@ const TransferSlipDetail = () => {
           <p>
             <strong>Mục đích:</strong>
           </p>
-          {/* <p>
-            <strong>Số lượng:</strong> {data.selectedProducts.length}
-          </p> */}
+          <p>
+            <strong>Người tạo phiếu :</strong>{" "}
+            {transferDetails.createdByFullName}
+          </p>
 
           <p>
-            <strong>Tên người lấy hàng:</strong> {transferDetails.receiver_name}
+            <strong>Người bàn giao :</strong>
           </p>
           <p>
-            <strong>Tên người bàn giao hàng:</strong>
+            <strong>Người nhận bàn giao:</strong>
           </p>
 
           <p>
@@ -168,28 +148,30 @@ const TransferSlipDetail = () => {
           </p>
         </div>
         <h2>Danh sách vật tư</h2>
-        <table className="transfer-slip-table">
-          <thead>
-            <tr>
-              <th style={{ width: "100px" }}>Mã vật tư</th>
-              <th style={{ width: "140px" }}>Tên</th>
-              <th style={{ width: "40px" }}>ĐVT</th>
-              <th style={{ width: "40px" }}>SL</th>
-              <th>Ghi chú</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transferDetails.selectedProducts.map((product, index) => (
-              <tr key={index}>
-                <td>{product.code}</td>
-                <td style={{ padding: "15px" }}>{product.name}</td>
-                <td>{product.unit}</td>
-                <td>{product.quantity}</td>
-                <td></td>
+        <div className="transfer-slip-table-wrapper">
+          <table className="transfer-slip-table">
+            <thead>
+              <tr>
+                <th style={{ width: "100px" }}>Mã vật tư</th>
+                <th style={{ width: "140px" }}>Tên</th>
+                <th style={{ width: "40px" }}>ĐVT</th>
+                <th style={{ width: "40px" }}>SL</th>
+                <th>Ghi chú</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {transferDetails.selectedProducts.map((product, index) => (
+                <tr key={index}>
+                  <td>{product.code}</td>
+                  <td style={{ padding: "15px" }}>{product.name}</td>
+                  <td>{product.unit}</td>
+                  <td>{product.quantity}</td>
+                  <td></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <div className="transfer-slip-signature">
           <p>
             <strong>Người nhận</strong>

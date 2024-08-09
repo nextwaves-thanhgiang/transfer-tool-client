@@ -76,3 +76,28 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+.transfer-slip {
+  max-width: 100%;
+  height: 100vh; /* Chiều cao bằng với chiều cao của cửa sổ trình duyệt */
+  overflow: auto; /* Cho phép cuộn nếu nội dung vượt quá kích thước của div */
+  padding: 20px;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước của div */
+}
+
+.transfer-slip-table-wrapper {
+  overflow-x: auto; /* Cho phép cuộn ngang riêng cho bảng */
+}
+
+.transfer-slip-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.transfer-slip-table th,
+.transfer-slip-table td {
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
